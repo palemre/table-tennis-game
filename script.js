@@ -139,8 +139,23 @@ function update() {
 
     let player = (ball.x < canvas.width/2) ? user : com
     if(collision(ball,player)) {
-        ball.velocityX = -ball.velocityX
+        // where the ball hit the player
+        let collidePoint = ball.y - (player.y + player.height/2)
+
+        collidePoint = collidePoint/(player.height/2)
+
+        let radianAngle = collidePoint * Math.PI/4
+
+        // return ball from computer paddle
+        let direction = (ball.x < canvas.width/2) ? 1 : -1
+
+        ball.velocityX = direction * ball.speed * Math.cos(radianAngle)
+        ball.velocityY = ball.speed * Math.sin(radianAngle)
+
+        ball.speed += 0.2
     }
+
+    // update the score
 }
 
 // game init
