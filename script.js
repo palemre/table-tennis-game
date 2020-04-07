@@ -9,6 +9,9 @@ startButton.addEventListener('click', (e) => {
     ripples.style.top = y + 'px'
     startButton.appendChild(ripples)
 
+    console.log(x)
+    console.log(y)
+    
     setTimeout(() => {
         ripples.remove()
     },1000)
@@ -201,6 +204,10 @@ function game() {
     render()
 }
 
-// loop
-const framePerSecond = 50
-setInterval(game, 1000/framePerSecond)
+const hud = document.querySelector('.hud')
+startButton.addEventListener('click', () => {
+    // loop
+    const framePerSecond = 50
+    setInterval(game, 1000/framePerSecond)
+    hud.remove()
+})

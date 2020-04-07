@@ -16,6 +16,7 @@ body
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 0.6rem;
+    background-color: #000;
 }
 
 p
@@ -29,23 +30,31 @@ p
     text-transform: uppercase;
     justify-content: center;
     color: #FFF;
+    background-color: #000;
 }
 
 a
 {
     display: flex;
     color: #FFF;
+    font-family: helvetica;
     text-decoration: none;
     text-transform: uppercase;
     font-size: 2.5rem;
     letter-spacing: 0.4rem;
-    background: linear-gradient(90deg, #0162c8, #55e7fc);
+    background: linear-gradient(90deg, #EB5757, #000000, #EB5757);
     border-radius: 1rem;
     justify-content: center;
-    width: 40%;
+    width: 400px;
     margin: auto;
     padding: 10px 15px;
     overflow: hidden;
+}
+
+a:hover
+{
+    background: #fff;
+    color: #000000;
 }
 
 span
@@ -56,6 +65,7 @@ span
     pointer-events: none;
     border-radius: 50%;
     animation: ripple 1s linear infinite;
+    overflow: hidden;
 }
 
 @keyframes ripple
@@ -80,4 +90,5 @@ canvas
     margin: auto;
     margin-top: 10%;;
     border: 2px solid #FFF;
+    cursor: none;
 }
