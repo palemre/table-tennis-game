@@ -84,6 +84,22 @@ span
     }
 }
 
+.radio-buttons
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+label
+{
+    color: #FFF;
+    margin-right: 20px;
+    text-transform: uppercase;
+    font-family: helvetica;
+    font-size: 1.2rem;
+}
+
 canvas
 {
     display: block;

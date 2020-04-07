@@ -1,6 +1,17 @@
 // button click
 const startButton = document.querySelector('a')
+
+let difficulty = 0
 startButton.addEventListener('click', (e) => {
+    // difficulty
+    if (document.querySelector('#easy').checked) {
+        difficulty = 1
+    } else if (document.querySelector('#medium').checked) {
+        difficulty = 2
+    } else {
+        difficulty = 3
+    }
+
     let x = e.clientX - e.target.offsetLeft
     let y = e.clientY - e.target.offsetTop
 
@@ -180,7 +191,13 @@ function update() {
         ball.velocityX = direction * ball.speed * Math.cos(radianAngle)
         ball.velocityY = ball.speed * Math.sin(radianAngle)
 
-        ball.speed += 1
+        if (difficulty == 1) {
+            ball.speed += 0.1
+        } else if (difficulty == 2) {
+            ball.speed += 0.5
+        } else {
+            ball.speed += 1.2
+        }
     }
 
     // update the score
