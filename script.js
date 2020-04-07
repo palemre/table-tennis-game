@@ -1,3 +1,19 @@
+// button click
+const startButton = document.querySelector('a')
+startButton.addEventListener('click', (e) => {
+    let x = e.clientX - e.target.offsetLeft
+    let y = e.clientY - e.target.offsetTop
+
+    let ripples = document.createElement('span')
+    ripples.style.left = x + 'px'
+    ripples.style.top = y + 'px'
+    startButton.appendChild(ripples)
+
+    setTimeout(() => {
+        ripples.remove()
+    },1000)
+})
+
 // select canvas
 const canvas = document.querySelector('#canvas')
 const context = canvas.getContext('2d')
@@ -122,6 +138,15 @@ function collision(b, p) {
     return b.right > p.left && b.bottom > p.top && b.left < p.right && b.top < p.bottom
 }
 
+// reset ball
+function resetBall()
+{
+    ball.x = canvas.width/2
+    ball.y = canvas.height/2
+
+    ball.speed = 5
+    ball.velocityX = -ball.velocityX
+}
 
 // update
 function update() {
@@ -152,10 +177,22 @@ function update() {
         ball.velocityX = direction * ball.speed * Math.cos(radianAngle)
         ball.velocityY = ball.speed * Math.sin(radianAngle)
 
-        ball.speed += 0.2
+        ball.speed += 0.5
     }
 
     // update the score
+    if(ball.x - ball.radius < 0)
+    {
+        // means com scores
+        com.score++
+        resetBall()
+    }
+    else if(ball.x + ball.radius > canvas.width)
+    {
+        // means the user scored
+        user.score++
+        resetBall()
+    }
 }
 
 // game init
