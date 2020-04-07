@@ -180,7 +180,7 @@ function update() {
         ball.velocityX = direction * ball.speed * Math.cos(radianAngle)
         ball.velocityY = ball.speed * Math.sin(radianAngle)
 
-        ball.speed += 0.5
+        ball.speed += 1
     }
 
     // update the score
